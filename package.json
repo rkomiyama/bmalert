@@ -18,14 +18,14 @@
     "build:js:minified": "npm run clean:js:minified && webpack --minify",
     "watch:js:minified": "npm run build:js:minified && webpack --watch --minify",
     "clean:js:minified": "rm -f dist/$npm_package_name.$npm_package_version.min.js dist/$npm_package_name.$npm_package_version.min.js.map",
-    "build:css": "npm run build:css:unminified && npm run build:css:minified",
-    "watch:css": "npm run watch:css:unminified & npm run watch:css:minified",
+    "build:css": "npm run build:css:unminified",
+    "watch:css": "npm run watch:css:unminified",
     "clean:css": "npm run clean:css:unminified && npm run clean:css:minified",
     "build:css:unminified": "npm run clean:css:unminified && lessc --source-map src/css/bmalert.less dist/$npm_package_name.$npm_package_version.css",
-    "watch:css:unminified": "npm run build:css:unminified && chokidar 'css/**/*.(css|less)' -c 'npm run build:css:unminified'",
+    "watch:css:unminified": "npm run build:css:unminified && chokidar 'src/css/*.less' -c 'npm run build:css:unminified'",
     "clean:css:unminified": "rm -f dist/$npm_package_name.$npm_package_version.css dist/$npm_package_name.$npm_package_version.css.map",
     "build:css:minified": "npm run clean:css:minified && lessc --clean-css --source-map src/css/bmalert.less dist/$npm_package_name.$npm_package_version.min.css",
-    "watch:css:minified": "npm run build:css:minified && chokidar 'css/**/*.(css|less)' -c 'npm run build:css:minified'",
+    "watch:css:minified": "npm run build:css:minified && chokidar 'src/css/*.less' -c 'npm run build:css:minified'",
     "clean:css:minified": "rm -f dist/$npm_package_name.$npm_package_version.min.css dist/$npm_package_name.$npm_package_version.min.css.map"
   },
   "repository": {
