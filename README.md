@@ -17,8 +17,8 @@ npm install
 To use:
 
 ```html
-<script src="node_modules/bmalert/dist/dist/bmalert.1.0.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="node_modules/bmalert/dist/dist/bmalert.1.0.0.css">
+<script src="node_modules/bmalert/dist/bmalert.1.0.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="node_modules/bmalert/dist/bmalert.1.0.0.min.css">
 ```
 
 Methods
