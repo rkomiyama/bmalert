@@ -54,7 +54,7 @@
         params.alertState = arguments[0].alertState || defaultParams.alertState;
         params.showCancel = arguments[0].showCancel || defaultParams.showCancel;
         params.showConfirm = arguments[0].showConfirm || defaultParams.showConfirm;
-        params.closeOnConfirm = arguments[0].closeOnConfirm || defaultParams.closeOnConfirm;
+        params.closeOnConfirm = arguments[0].closeOnConfirm;
         break;
 
       default:
@@ -100,9 +100,9 @@
     $cleanCancelBtn.innerHTML = params.cancelButtonText;
     $cleanConfirmBtn.innerHTML = params.confirmButtonText;
 
-    $cleanCancelBtn.addEventListener("click", params.cancelButtonCallBack || defaultParams.cancelButtonCallBack);
+    $cleanCancelBtn.addEventListener("click", params.cancelButtonCallback || defaultParams.cancelButtonCallback);
     $cleanCancelBtn.addEventListener("click", closeModal);
-    $cleanConfirmBtn.addEventListener("click", params.confirmButtonCallBack || defaultParams.confirmButtonCallBack);
+    $cleanConfirmBtn.addEventListener("click", params.confirmButtonCallback || defaultParams.confirmButtonCallback);
 
     if(params.closeOnConfirm)
     {
