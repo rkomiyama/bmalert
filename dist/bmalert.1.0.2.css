@@ -20,6 +20,7 @@
   display: none;
   width: 0;
   height: 0;
+  overflow: hidden;
 }
 .bmalert-hide {
   -webkit-animation: display-none-transition 0.1s ease-in-out;
@@ -315,4 +316,4 @@
 .bmalert-container button:active {
   background-color: #C1CEBC;
 }
-/*# sourceMappingURL=bmalert.1.0.0.css.map */
+/*# sourceMappingURL=bmalert.1.0.2.css.map */
