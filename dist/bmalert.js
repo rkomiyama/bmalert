@@ -327,4 +327,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=bmalert.1.0.2.js.map
+//# sourceMappingURL=bmalert.js.map

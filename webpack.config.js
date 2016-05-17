@@ -6,7 +6,7 @@ var packageData = require('./package.json');
 
 var minify = process.argv.indexOf('--minify') != -1;
 
-var filename = [packageData.name, packageData.version, 'js'];
+var filename = [packageData.name, 'js'];
 var plugins = [];
 
 if (minify) {
