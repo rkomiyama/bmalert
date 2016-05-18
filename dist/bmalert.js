@@ -141,13 +141,13 @@
 	    $cleanCancelBtn.innerHTML = params.cancelButtonText;
 	    $cleanConfirmBtn.innerHTML = params.confirmButtonText;
 	
-	    $cleanCancelBtn.addEventListener("click", params.cancelButtonCallback || defaultParams.cancelButtonCallback);
-	    $cleanCancelBtn.addEventListener("click", closeModal);
-	    $cleanConfirmBtn.addEventListener("click", params.confirmButtonCallback || defaultParams.confirmButtonCallback);
-	
 	    if (params.closeOnConfirm) {
 	      $cleanConfirmBtn.addEventListener("click", closeModal);
 	    }
+	
+	    $cleanCancelBtn.addEventListener("click", params.cancelButtonCallback || defaultParams.cancelButtonCallback);
+	    $cleanCancelBtn.addEventListener("click", closeModal);
+	    $cleanConfirmBtn.addEventListener("click", params.confirmButtonCallback || defaultParams.confirmButtonCallback);
 	
 	    if (!params.showCancel) {
 	      $cleanCancelBtn.style.display = 'none';
