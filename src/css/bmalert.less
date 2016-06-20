@@ -6,276 +6,283 @@
 @bm-loader-warning-color: rgba(199, 195, 15, 1);
 @bm-loader-error-color-transparent: rgba(199, 15, 15, 0.1);
 @bm-loader-error-color: rgba(199, 15, 15, 1);
-@bm-maincolor: rgb(137,193,72);
-@bmalert-fontcolor: #717171;
+@bm-maincolor: rgb(129, 187, 63);
+@bm-maincolor-dark: rgb(109, 167, 43);
+@bmalert-fontcolor: #333;
 
-@bm-font: 'Roboto', sans-serif;
-
-
-.bmalert-container *
-{
-    font-family: @bm-font;
-    box-sizing: border-box;
-    outline: 0;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+@font-face {
+  font-family: Roboto-Condensed-Regular;
+  src: url("../src/fonts/RobotoCondensed-Regular.ttf");
 }
 
-.bmalert-container *:focus
-{
-    outline: 0;
+@bm-font: Roboto-Condensed-Regular, 'Roboto', sans-serif;
+
+.bmalert-container * {
+  font-family: @bm-font;
+  box-sizing: border-box;
+  outline: 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.bmalert-container
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background: rgba(33,33,33,.48);
-    display: none;
-    width: 0;
-    height: 0;
-    overflow: hidden;
+.bmalert-container *:focus {
+  outline: 0;
 }
 
-.bmalert-hide
-{
-    -webkit-animation: display-none-transition .1s ease-in-out;
-    animation: display-none-transition .1s ease-in-out;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    display: block;
+.bmalert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(33, 33, 33, .48);
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
-.bmalert-show
-{
-    -webkit-animation: display-transition .1s ease-in-out;
-    animation: display-transition .1s ease-in-out;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    display: block;
+.bmalert-hide {
+  -webkit-animation: display-none-transition .1s ease-in-out;
+  animation: display-none-transition .1s ease-in-out;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-#bmalert-prompt
-{
-    position: relative;
-    margin: 0 auto;
-    margin-top: ~"calc(50vh - 14rem)";
-    width: 36rem;
-    min-height: 20rem;
-    background-color: white;
-    border-radius: 4px;
-    overflow: hidden;
-    text-align: center;
-    padding-left: 2em;
-    padding-right: 2em;
-    box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
-    -webkit-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
-    -moz-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
-
-    @media only screen and (max-width : 768px)
-    {
-        margin-top: 8rem;
-        max-width: 92%;
-    }
+.bmalert-show {
+  -webkit-animation: display-transition .1s ease-in-out;
+  animation: display-transition .1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-#spinner_container svg
-{
-    position: absolute;
-    top: .5em;
-    left: ~"calc(50% - 80px)";
+#bmalert-prompt {
+  margin-top: 10%;
+  position: relative;
+  width: 36rem;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
+  -moz-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 8rem;
+    max-width: 92%;
+  }
 }
 
-.spinner-container-complete
-{
-    z-index: 2;
-    top: 0;
-    left: 0;
+#spinner_container {
+  position: relative;
+  height: 160px;
+  width: 160px;
 }
 
-.spinner-container-complete .path
-{
-    stroke-dasharray: 150,150;
-    stroke-dashoffset: 0;
-    stroke: @bm-loader-color;
-    stroke-linecap: round;
-    -webkit-animation: dash-complete .5s ease-in-out;
-    animation: dash-complete .5s ease-in-out;
+#spinner_container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.spinner-container-warning
-{
-    z-index: 2;
-    top: 0;
-    left: 0;
+.spinner-container-complete {
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 
-.spinner-container-warning .path
-{
-    stroke-dasharray: 150,150;
-    stroke-dashoffset: 0;
-    stroke: @bm-loader-warning-color;
-    stroke-linecap: round;
-    -webkit-animation: dash-warning .5s ease-in-out;
-    animation: dash-warning .5s ease-in-out;
+.spinner-container-complete .path {
+  stroke-dasharray: 150, 150;
+  stroke-dashoffset: 0;
+  stroke: @bm-loader-color;
+  stroke-linecap: round;
+  -webkit-animation: dash-complete .5s ease-in-out;
+  animation: dash-complete .5s ease-in-out;
 }
 
-.spinner-container-error
-{
-    z-index: 2;
-    top: 0;
-    left: 0;
+.spinner-container-warning {
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 
-.spinner-container-error .path
-{
-    stroke-dasharray: 150,150;
-    stroke-dashoffset: 0;
-    stroke: @bm-loader-error-color;
-    stroke-linecap: round;
-    -webkit-animation: dash-error .5s ease-in-out;
-    animation: dash-error .5s ease-in-out;
+.spinner-container-warning .path {
+  stroke-dasharray: 150, 150;
+  stroke-dashoffset: 0;
+  stroke: @bm-loader-warning-color;
+  stroke-linecap: round;
+  -webkit-animation: dash-warning .5s ease-in-out;
+  animation: dash-warning .5s ease-in-out;
 }
 
-.spinner-container-loading
-{
-    -webkit-animation: rotate 2s linear infinite;
-    animation: rotate 2s linear infinite;
-    z-index: 2;
-    top: 0;
-    left: 0;
+.spinner-container-error {
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 
-.spinner-container-loading .path
-{
-    stroke-dasharray: 1,150;
-    stroke-dashoffset: 0;
-    stroke: @bm-loader-color;
-    stroke-linecap: round;
-    -webkit-animation: dash 1.5s ease-in-out infinite;
-    animation: dash 1.5s ease-in-out infinite;
+.spinner-container-error .path {
+  stroke-dasharray: 150, 150;
+  stroke-dashoffset: 0;
+  stroke: @bm-loader-error-color;
+  stroke-linecap: round;
+  -webkit-animation: dash-error .5s ease-in-out;
+  animation: dash-error .5s ease-in-out;
 }
 
-.loading-icon
-{
-    opacity: 0;
+.spinner-container-loading {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 
-.show-icon
-{
-    opacity:1;
-    animation: icon-appear .5s ease-in-out;
+.spinner-container-loading .path {
+  stroke-dasharray: 1, 150;
+  stroke-dashoffset: 0;
+  stroke: @bm-loader-color;
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+.loading-icon {
+  opacity: 0;
+}
+
+.show-icon {
+  opacity: 1;
+  animation: icon-appear .5s ease-in-out;
 }
 
 @keyframes rotate {
-    100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-@-webkit-keyframes rotate{
-    100% { -webkit-transform: rotate(360deg); }
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes dash-complete {
-    0% {
-        stroke: @bm-loader-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-color;
-    }
+  0% {
+    stroke: @bm-loader-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-color;
+  }
 }
+
 @-webkit-keyframes dash-complete {
-    0% {
-        stroke: @bm-loader-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-color;
-    }
+  0% {
+    stroke: @bm-loader-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-color;
+  }
 }
 
 @keyframes dash-warning {
-    0% {
-        stroke: @bm-loader-warning-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-warning-color;
-    }
+  0% {
+    stroke: @bm-loader-warning-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-warning-color;
+  }
 }
+
 @-webkit-keyframes dash-warning {
-    0% {
-        stroke: @bm-loader-warning-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-warning-color;
-    }
+  0% {
+    stroke: @bm-loader-warning-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-warning-color;
+  }
 }
 
 @keyframes dash-error {
-    0% {
-        stroke: @bm-loader-error-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-error-color;
-    }
+  0% {
+    stroke: @bm-loader-error-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-error-color;
+  }
 }
+
 @-webkit-keyframes dash-error {
-    0% {
-        stroke: @bm-loader-error-color-transparent;
-    }
-    100% {
-        stroke: @bm-loader-error-color;
-    }
+  0% {
+    stroke: @bm-loader-error-color-transparent;
+  }
+  100% {
+    stroke: @bm-loader-error-color;
+  }
 }
 
 @keyframes dash {
-    0% {
-        stroke-dasharray: 1,150;
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dasharray: 90,150;
-        stroke-dashoffset: -35;
-    }
-    100% {
-        stroke-dasharray: 90,150;
-        stroke-dashoffset: -124;
-    }
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
+
 @-webkit-keyframes dash {
-    0% {
-        stroke-dasharray: 1,150;
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dasharray: 90,150;
-        stroke-dashoffset: -35;
-    }
-    100% {
-        stroke-dasharray: 90,150;
-        stroke-dashoffset: -124;
-    }
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
 
 @keyframes icon-appear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
 @-webkit-keyframes icon-appear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes display-transition {
@@ -306,7 +313,7 @@
     width: 100%;
     height: 100%;
   }
-  99% {
+  99% {
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -323,7 +330,7 @@
     width: 100%;
     height: 100%;
   }
-  99% {
+  99% {
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -334,8 +341,7 @@
   }
 }
 
-.transition
-{
+.transition {
   -webkit-transition: all .5s ease;
   -moz-transition: all .5s ease;
   -o-transition: all .5s ease;
@@ -344,53 +350,50 @@
 }
 
 #spinner_container {
-    text-align: center;
+  text-align: center;
 }
 
-.dialog-container-BM
-{
-    height: 24em;
-    width: 30em;
+.dialog-container-BM {
+  height: 24em;
+  width: 30em;
 }
 
-.bmalert-container h1
-{
-    margin-top: 6em;
-    word-break:break-word;
-    color: @bmalert-fontcolor;
-    font-weight: lighter;
-    -moz-user-select: text;
-    -khtml-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+.bmalert-container h1 {
+  word-break: break-word;
+  color: @bmalert-fontcolor;
+  font-weight: lighter;
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
-.bmalert-container button
-{
-    font-size: 1.1rem;
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 1em;
-    margin-bottom: 2em;
-    border: 0;
-    border-radius: 3px;
-    background: none;
-    cursor: pointer;
-    min-width: 8em;
-    padding: 0 6px;
-    min-height: 36px;
-    color: @bm-maincolor;
-    transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+#bmalert-btns {
+  display: flex;
 }
 
-.bmalert-container button:hover {
-  background-color: rgba(158,158,158,0.2);
-}
+.bmalert-container button {
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  min-width: 200px;
+  margin: 0 20px;
+  background: @bm-maincolor;
+  padding: 10px 20px;
+  transition: all .3s;
+  font-size: .9rem;
+  line-height: normal;
+  text-transform: none;
+  font-family: Roboto-Condensed-Regular;
 
+  &:hover {
+    background: @bm-maincolor-dark !important;
+  }
 
-.bmalert-container button:active
-{
-    background-color: #C1CEBC;
+  &:disabled {
+    background: #ccc !important;
+  }
+
 }
 

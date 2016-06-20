@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+@font-face {
+  font-family: Roboto-Condensed-Regular;
+  src: url("../src/fonts/RobotoCondensed-Regular.ttf");
+}
 .bmalert-container * {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto-Condensed-Regular, 'Roboto', sans-serif;
   box-sizing: border-box;
   outline: 0;
   -moz-user-select: none;
@@ -29,7 +33,9 @@
   width: 0;
   height: 0;
   opacity: 0;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 .bmalert-show {
   -webkit-animation: display-transition 0.1s ease-in-out;
@@ -37,20 +43,22 @@
   width: 100%;
   height: 100%;
   opacity: 1;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 #bmalert-prompt {
+  margin-top: 10%;
   position: relative;
-  margin: 0 auto;
-  margin-top: calc(50vh - 14rem);
   width: 36rem;
-  min-height: 20rem;
   background-color: white;
   border-radius: 4px;
   overflow: hidden;
-  text-align: center;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
   -moz-box-shadow: 10px 10px 88px -24px rgba(0, 0, 0, 0.91);
@@ -61,10 +69,15 @@
     max-width: 92%;
   }
 }
+#spinner_container {
+  position: relative;
+  height: 160px;
+  width: 160px;
+}
 #spinner_container svg {
   position: absolute;
-  top: .5em;
-  left: calc(50% - 80px);
+  top: 0;
+  left: 0;
 }
 .spinner-container-complete {
   z-index: 2;
@@ -72,7 +85,7 @@
   left: 0;
 }
 .spinner-container-complete .path {
-  stroke-dasharray: 150,150;
+  stroke-dasharray: 150, 150;
   stroke-dashoffset: 0;
   stroke: #8bc34a;
   stroke-linecap: round;
@@ -85,7 +98,7 @@
   left: 0;
 }
 .spinner-container-warning .path {
-  stroke-dasharray: 150,150;
+  stroke-dasharray: 150, 150;
   stroke-dashoffset: 0;
   stroke: #c7c30f;
   stroke-linecap: round;
@@ -98,7 +111,7 @@
   left: 0;
 }
 .spinner-container-error .path {
-  stroke-dasharray: 150,150;
+  stroke-dasharray: 150, 150;
   stroke-dashoffset: 0;
   stroke: #c70f0f;
   stroke-linecap: round;
@@ -113,7 +126,7 @@
   left: 0;
 }
 .spinner-container-loading .path {
-  stroke-dasharray: 1,150;
+  stroke-dasharray: 1, 150;
   stroke-dashoffset: 0;
   stroke: #8bc34a;
   stroke-linecap: round;
@@ -187,29 +200,29 @@
 }
 @keyframes dash {
   0% {
-    stroke-dasharray: 1,150;
+    stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
   50% {
-    stroke-dasharray: 90,150;
+    stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
   100% {
-    stroke-dasharray: 90,150;
+    stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;
   }
 }
 @-webkit-keyframes dash {
   0% {
-    stroke-dasharray: 1,150;
+    stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
   50% {
-    stroke-dasharray: 90,150;
+    stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
   100% {
-    stroke-dasharray: 90,150;
+    stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;
   }
 }
@@ -296,9 +309,8 @@
   width: 30em;
 }
 .bmalert-container h1 {
-  margin-top: 6em;
   word-break: break-word;
-  color: #717171;
+  color: #333;
   font-weight: lighter;
   -moz-user-select: text;
   -khtml-user-select: text;
@@ -306,26 +318,27 @@
   -ms-user-select: text;
   user-select: text;
 }
+#bmalert-btns {
+  display: flex;
+}
 .bmalert-container button {
-  font-size: 1.1rem;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 1em;
-  margin-bottom: 2em;
+  color: white;
   border: 0;
-  border-radius: 3px;
-  background: none;
-  cursor: pointer;
-  min-width: 8em;
-  padding: 0 6px;
-  min-height: 36px;
-  color: #89c148;
-  transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+  min-width: 200px;
+  margin: 0 20px;
+  background: #81bb3f;
+  padding: 10px 20px;
+  transition: all .3s;
+  font-size: .9rem;
+  line-height: normal;
+  text-transform: none;
+  font-family: Roboto-Condensed-Regular;
 }
 .bmalert-container button:hover {
-  background-color: rgba(158, 158, 158, 0.2);
+  background: #6da72b !important;
 }
-.bmalert-container button:active {
-  background-color: #C1CEBC;
+.bmalert-container button:disabled {
+  background: #ccc !important;
 }
 /*# sourceMappingURL=bmalert.css.map */

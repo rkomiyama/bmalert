@@ -131,7 +131,7 @@
     $promptContainer.replaceChild($cleanConfirmBtn, $confirmBtn);
 
     setAlertState(params.alertState);
-  }
+  };
 
   var setAlertState =  function(state)
   {
