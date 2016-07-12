@@ -85,7 +85,7 @@
   var setParameters =  function(params)
   {
     var modal = getModal();
-    var $promptContainer =  document.getElementById("bmalert-prompt");
+    var $btnsContainer = document.getElementById("bmalert-btns");
     var $title = modal.querySelector('h1');
 
     $title.innerHTML = params.title;
@@ -127,8 +127,8 @@
       $cleanConfirmBtn.style.display = 'inline-block';
     }
 
-    $promptContainer.replaceChild($cleanCancelBtn, $cancelBtn);
-    $promptContainer.replaceChild($cleanConfirmBtn, $confirmBtn);
+    $btnsContainer.replaceChild($cleanCancelBtn, $cancelBtn);
+    $btnsContainer.replaceChild($cleanConfirmBtn, $confirmBtn);
 
     setAlertState(params.alertState);
   };
@@ -308,8 +308,10 @@
         '</svg>' +
       '</div>' +
       '<h1 id="bmalert-title" class="bmalert-title">Seguro?</h1>' +
-      '<button id="bmalert-cancel" class="bmalert-cancel">Si</button>' +
-      '<button id="bmalert-confirm" class="bmalert-confirm">No</button>' +
+      '<div id="bmalert-btns">'+
+        '<button id="bmalert-cancel" class="bmalert-cancel">Si</button>' +
+        '<button id="bmalert-confirm" class="bmalert-confirm">No</button>' +
+      '</div' +
     '</div>' ;
     var bmalertWrap = document.createElement('div');
     bmalertWrap.className = window.bmalertClasses.modal;

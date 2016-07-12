@@ -1,6 +1,6 @@
 {
   "name": "bmalert",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A nice, custom Boletomovil javascript alert.",
   "main": "src/js/bmalert.js",
   "scripts": {
