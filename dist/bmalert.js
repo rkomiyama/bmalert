@@ -70,7 +70,8 @@
 	    confirmButtonCallback: function () {},
 	    showCancel: false,
 	    showConfirm: true,
-	    closeOnConfirm: true
+	    closeOnConfirm: true,
+	    clickOutsideToClose: false
 	  };
 	
 	  function showModal() {
@@ -97,7 +98,8 @@
 	        params.alertState = arguments[0].alertState || defaultParams.alertState;
 	        params.showCancel = arguments[0].showCancel || defaultParams.showCancel;
 	        params.showConfirm = arguments[0].showConfirm || defaultParams.showConfirm;
-	        params.closeOnConfirm = arguments[0].closeOnConfirm;
+	        params.closeOnConfirm = arguments[0].closeOnConfirm || defaultParams.closeOnConfirm;
+	        params.clickOutsideToClose = arguments[0].clickOutsideToClose || defaultParams.clickOutsideToClose;
 	        break;
 	
 	      default:
@@ -143,6 +145,10 @@
 	
 	    if (params.closeOnConfirm) {
 	      $cleanConfirmBtn.addEventListener("click", closeModal);
+	    }
+	
+	    if (params.clickOutsideToClose) {
+	      modal.addEventListener("click", closeModal);
 	    }
 	
 	    $cleanCancelBtn.addEventListener("click", params.cancelButtonCallback || defaultParams.cancelButtonCallback);

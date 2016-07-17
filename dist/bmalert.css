@@ -44,12 +44,10 @@
   height: 100%;
   opacity: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 #bmalert-prompt {
-  margin-top: 10%;
-  position: relative;
   width: 36rem;
   background-color: white;
   border-radius: 4px;
