@@ -17,9 +17,11 @@ npm install
 To use:
 
 ```html
-<script src="node_modules/bmalert/dist/bmalert.1.0.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="node_modules/bmalert/dist/bmalert.1.0.0.min.css">
+<link rel="stylesheet" type="text/css" href="dist/bmalert.css">
+<script type="text/javascript" src="dist/bmalert.js"></script>
 ```
+
+Instead of `alert()`, use `bmalert()`.
 
 Methods
 -------
